@@ -789,7 +789,7 @@ const getNormalConfigs = async (env, hostName, client) => {
     ];
 
     Addresses.forEach((addr) => {
-        let remark = `💦 BPB - ${addr}`;
+        let remark = `💦 JB - ${addr}`;
         remark = remark.length <= 30 ? remark : `${remark.slice(0,29)}...`;
 
         vlessWsTls += 'vless' + `://${userID}@${addr}:443?encryption=none&security=tls&type=ws&host=${
@@ -930,7 +930,7 @@ const buildWorkerLessConfig = async (env, client) => {
     fakeOutbound.tag = 'fake-outbound';
 
     let fragConfig = structuredClone(xrayConfigTemp);
-    fragConfig.remarks  = '💦 BPB Frag - WorkerLess ⭐'
+    fragConfig.remarks  = '💦 JB Frag - WorkerLess ⭐'
     fragConfig.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn, true);
     fragConfig.outbounds[0].settings.domainStrategy = 'UseIP';
     fragConfig.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
@@ -1012,7 +1012,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
         let addr = Addresses[index];
         let fragConfig = structuredClone(xrayConfigTemp);
         let outbound = structuredClone(xrayOutboundTemp);
-        let remark = `💦 BPB Frag - ${addr}`;
+        let remark = `💦 JB Frag - ${addr}`;
         delete outbound.mux;
         delete outbound.streamSettings.grpcSettings;
         delete outbound.streamSettings.realitySettings;
@@ -1064,7 +1064,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
 
 
     let bestPing = structuredClone(xrayConfigTemp);
-    bestPing.remarks = '💦 BPB Frag - Best Ping 💥';
+    bestPing.remarks = '💦 JB Frag - Best Ping 💥';
     bestPing.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     bestPing.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
     bestPing.outbounds[0].settings.fragment.interval = `${intervalMin}-${intervalMax}`;
@@ -1647,10 +1647,10 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                             </div>
                         </td>
 						<td>
-                            <button onclick="openQR('https://${hostName}/sub/${userID}#BPB-Normal', 'Normal Subscription')" style="margin-bottom: 8px;">
+                            <button onclick="openQR('https://${hostName}/sub/${userID}#JB-Normal', 'Normal Subscription')" style="margin-bottom: 8px;">
                                 QR Code&nbsp;<span class="material-symbols-outlined">qr_code</span>
                             </button>
-                            <button onclick="copyToClipboard('https://${hostName}/sub/${userID}#BPB-Normal', false)">
+                            <button onclick="copyToClipboard('https://${hostName}/sub/${userID}#JB-Normal', false)">
                                 Copy Sub<span class="material-symbols-outlined">format_list_bulleted</span>
                             </button>
                         </td>
@@ -1667,7 +1667,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                             </div>
                         </td>
 						<td>
-                            <button onclick="copyToClipboard('https://${hostName}/sub/${userID}?app=singbox#BPB-Normal', false)">
+                            <button onclick="copyToClipboard('https://${hostName}/sub/${userID}?app=singbox#JB-Normal', false)">
                                 Copy Sub<span class="material-symbols-outlined">format_list_bulleted</span>
                             </button>
 						</td>
@@ -1680,10 +1680,10 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                             </div>
                         </td>
                         <td>
-                            <button onclick="openQR('sing-box://import-remote-profile?url=https://${hostName}/sub/${userID}?app=sfa#BPB-Normal', 'Normal Subscription')" style="margin-bottom: 8px;">
+                            <button onclick="openQR('sing-box://import-remote-profile?url=https://${hostName}/sub/${userID}?app=sfa#JB-Normal', 'Normal Subscription')" style="margin-bottom: 8px;">
                                 QR Code&nbsp;<span class="material-symbols-outlined">qr_code</span>
                             </button>
-                            <button onclick="copyToClipboard('https://${hostName}/sub/${userID}?app=sfa#BPB-Normal', false)">
+                            <button onclick="copyToClipboard('https://${hostName}/sub/${userID}?app=sfa#JB-Normal', false)">
                                 Copy Sub<span class="material-symbols-outlined">format_list_bulleted</span>
                             </button>
                         </td>
@@ -1713,10 +1713,10 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                             </div>
                         </td>
                         <td>
-                            <button onclick="openQR('https://${hostName}/fragsub/${userID}#BPB Fragment', 'Fragment Subscription')" style="margin-bottom: 8px;">
+                            <button onclick="openQR('https://${hostName}/fragsub/${userID}#JB Fragment', 'Fragment Subscription')" style="margin-bottom: 8px;">
                                 QR Code&nbsp;<span class="material-symbols-outlined">qr_code</span>
                             </button>
-                            <button onclick="copyToClipboard('https://${hostName}/fragsub/${userID}#BPB Fragment', true)">
+                            <button onclick="copyToClipboard('https://${hostName}/fragsub/${userID}#JB Fragment', true)">
                                 Copy Sub<span class="material-symbols-outlined">format_list_bulleted</span>
                             </button>
                         </td>
